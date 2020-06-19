@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Race Car</title>
-    <script src="Projetocar.js" type="module"></script>
+    <script src="./js/index.js" type="module"></script>
     <style>
     canvas{
         background-color: black;
@@ -15,12 +15,158 @@
         
     }
 
+    #scoreboard{
+        width: 512px;
+        height: 850px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #scoreboard .inner-board{
+        width: inherit;
+        height: inherit;
+        position: relative;
+    }
+
+    #scoreboard .inner-board .fuel-meter{
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        display: flex;
+    }
+
+    #scoreboard .inner-board .fuel-meter .fuel-level-container{
+        width: 100px;
+        padding: 0px 5px;
+    }
+
+    #scoreboard .inner-board .fuel-meter .fuel-level-container .fuel-level{
+        width: 50px ;
+        height: 20px;
+        background-color: green;
+    }
+
+    .meter-box{
+        color: white;
+        background-color: rgba(0,0,0,0.5);
+        padding: 5px 10px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    #scoreboard .inner-board .time-meter{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        display: flex;
+    }
+    #scoreboard .inner-board .time-meter .label{
+        margin-right: 10px;
+    }
+    #scoreboard .inner-board .speedo-meter {
+        position: absolute;
+        left: 10px;
+        top: 50px;
+        display: flex
+    }
+      
+
+
+    #scoreboard .inner-board .speedo-meter .speed{
+        width: 30px;
+        text-align: right;
+       
+    }
+    #scoreboard .inner-board .speedo-meter .unit{
+        margin-left: 5px;
+    }
+
+    #scoreboard .inner-board .distance-meter {
+        position: absolute;
+        right: 10px;
+        top: 50px;
+        display: flex
+    }
+    #scoreboard .inner-board .distance-meter .distance{
+        margin-right: 10px;
+    }
+
+
+    #scoreboard .inner-board .messages{
+        position: absolute;
+        top: 50%;
+        left:50% ;
+        transform: translate(-50%, -50%);
+        width: inherit;
+        height: inherit;
+
+    }
+
+
+    #scoreboard .inner-board .messages .try-again{
+        background-image:url('./images/pressSpaceBar.png');
+        width: inherit;
+        height: inherit;
+        display: none;
+
+    }
+
+
+    
     </style>
 </head>
 
 <body>
 
     <canvas id="canvas" width="512" height="850"></canvas>
+
+    <div id="scoreboard">
+        <div class="inner-board">
+            <div class="fuel-meter meter-box">
+                <div class="laber">FUEL</div>
+                <div class="fuel-level-container">
+                    <div class="fuel-level"></div>
+                </div>
+               
+            </div>   <!-- end of fuel meter -->     
+            <div class="time-meter meter-box">
+                <div class="label">
+                    TIME LAPS:-
+                </div>
+                <div class="time">
+                    00:00:00
+                </div>
+            </div>  <!-- end of time meter -->  
+            <div class="speedo-meter meter-box">
+                <div class="speed">
+                    0
+                </div>
+                <div class="unit">
+                    KM/h
+                </div>
+            </div>  <!-- end of time meter -->    
+            <div class="distance-meter meter-box">
+
+                <div class="distance">
+                    10 KMs
+                </div>
+                <div class="label">
+                    LEFT
+                </div>
+            </div> <!-- end of time meter --> 
+
+            <div class="messages">
+                <div class="try-again">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </body>
 </html>
